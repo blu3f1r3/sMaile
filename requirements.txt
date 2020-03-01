@@ -1,0 +1,5 @@
+beautifulsoup4==4.8.2
+bs4==0.0.1
+PTable==0.9.2
+soupsieve==2.0
+tqdm==4.43.0

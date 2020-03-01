@@ -29,8 +29,9 @@ class ProviderXMLHandler:
         try:
             self.dom = ElementTree.parse(self.fullFilePath)
         except Exception as e:
-            logger.error(xmlfile)
+            logger.debug(xmlfile)
             logger.error(traceback.format_exc())
+            logger.info('Maybe try to fix with --update')
             raise e
 
         self.domain = xmlfile

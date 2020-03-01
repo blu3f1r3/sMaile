@@ -47,6 +47,8 @@ def get_email_domain_name(email):
 autoconfig_url = "https://autoconfig.thunderbird.net/v1.1/"
 root_dir = os.path.dirname(os.path.abspath(__file__))
 path = os.path.join(root_dir, 'xml')
+if not os.path.exists(path):
+    os.mkdir(path)
 
 
 def update_worker(link):

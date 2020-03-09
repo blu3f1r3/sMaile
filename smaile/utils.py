@@ -36,13 +36,12 @@ def is_online():
 
 def get_email_domain_name(email):
     match = re.search(r'[\w\.-]+@[\w\.-]+', email)
+    import tldextract
     if match:
-        tmp = match.group(0).split('@')[1].split('.')
-        if len(tmp) <= 2:
-            return '.'.join(tmp[len(tmp) - 2:])
-        return '.'.join(tmp[1:])
-    return email
-
+        tmp = match.group(0).split('@')[1]
+        extracted = tldextract.extract(tmp)
+        return "{}.{}".format(extracted.domain, extracted.suffix)
+    return
 
 autoconfig_url = "https://autoconfig.thunderbird.net/v1.1/"
 root_dir = os.path.dirname(os.path.abspath(__file__))
